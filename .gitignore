@@ -30,3 +30,4 @@ dist-ssr
 .env.production
 .env.test
 .env
+db credintals.txt
