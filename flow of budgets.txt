@@ -1,0 +1,11 @@
+kasi budget ka andar ja ka expenses add keran ga 
+koi bhi expense budget ma add hon ga 
+like Shopping
+	|-shoes
+	|-clothes
+	|-laptop
+
+jab budget add ho ga tou us ki id bhi ho gi 
+expense jab add ho ga tou budget id params sa lani ha 
+or expense ma budget id set ho gay gi 
+

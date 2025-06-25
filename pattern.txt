@@ -1,0 +1,5 @@
+1) expenses => show total expenses list down expenses
+2) categories => show all created categies 
+3) dashboard=> total budget , total spend , no of categories , list down latest categories budgets
+4) Bills and Payments
+5) Reports
