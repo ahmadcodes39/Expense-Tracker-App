@@ -49,19 +49,16 @@ export const loginUser = async (req, res) => {
   try {
     const { email, password } = req.body;
 
-    // Check if the user exists
     const user = await User.findOne({ email });
     if (!user) {
       return res.status(400).json({ error: "Invalid email or password" });
     }
 
-    // Compare passwords
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
       return res.status(400).json({ error: "Invalid email or password" });
     }
 
-    // Generate JWT token
     const token = jwt.sign(
       {
         id: user._id,
@@ -86,7 +83,6 @@ export const loginUser = async (req, res) => {
 };
 
 
-//  this function is used to verify token and make protected route secure
 export const authenticateUser = async (req, res, next) => {
   try {
     const token = req.headers.authorization.split(" ")[1];
@@ -95,11 +91,11 @@ export const authenticateUser = async (req, res, next) => {
         .status(400)
         .json({ error: "Access Denied: No Token provided" });
     }
-    console.log("Extracted Token:", token); // Debugging
+    // console.log("Extracted Token:", token); 
 
     const verified = jwt.verify(token, process.env.SECRET_KEY);
     req.user = verified;
-    next(); // move to the next middleware or route
+    next(); 
   } catch (error) {
     res.status(401).json({ error: "Invalid Token" });
   }
@@ -212,3 +208,4 @@ export const getProfilePic = async (req, res) => {
     });
   }
 };
+

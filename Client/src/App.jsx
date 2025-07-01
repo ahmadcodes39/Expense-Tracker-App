@@ -20,10 +20,8 @@ import IndividualBudget from "./components/Pages/IndividualBudget";
 const Layout = ({ children }) => {
   const location = useLocation();
 
-  // Define routes where the sidebar should be hidden
   const hideSidebarRoutes = ["/login", "/signup", "/"];
 
-  // Check if the current route is in the list of routes where sidebar should be shown
   const shouldShowSidebar = ["/dashboard", "/budgets", "/expenses", "/payments", "/reports"]
     .some(route => location.pathname.startsWith(route)) || location.pathname.match(/^\/\w+\/\w+/);
 
@@ -52,14 +50,12 @@ function App() {
     <BrowserRouter>
       <Layout>
         <Routes>
-          {/* Public Routes */}
           <Route path="/" element={<Landing />} />
           <Route path="/login" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/update-password/:id/:token" element={<UpdatePassword />} />
 
-          {/* Protected Routes */}
           <Route element={<ProtectedRoute />}>
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/budgets" element={<Budgets />} />
@@ -69,7 +65,6 @@ function App() {
             <Route path="/reports" element={<Reports />} />
           </Route>
 
-          {/* 404 Not Found Route */}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Layout>

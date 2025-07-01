@@ -14,7 +14,7 @@ import {
 
 const router = express.Router();
 
-router.post("/addExpense/:userId/:budgetId",authenticateUser, addExpense); ///expense/budget/:budgetId
+router.post("/addExpense/:userId/:budgetId",authenticateUser, addExpense);
 router.delete("/deleteExpense/:id",authenticateUser, deleteExpense);
 router.put("/updateExpense/:id",authenticateUser, updateExpense);
 router.get("/expense/:userId",authenticateUser, expenses);

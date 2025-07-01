@@ -8,16 +8,16 @@ import SideBarItems from "./SideBarItems";
 import { Link, useLocation } from "react-router-dom";
 import AppLogo from "../Common/AppLogo";
 import ProfilePic from "./ProfilePic";
-
+import { useNavigate } from "react-router-dom";
 
 const LeftPanel = () => {
   const location = useLocation();
   const [selectedItem, setSelectedItem] = useState(location.pathname);
- 
- 
+  const navigate = useNavigate();
 
   const handleLogout = () => {
-    console.log("Logging out...");
+    localStorage.removeItem("userInfo");
+    navigate("/login");
   };
 
   const menuItems = [
@@ -27,7 +27,7 @@ const LeftPanel = () => {
     { path: "/payments", title: "Bills & Payments", icon: MdOutlinePayments },
     { path: "/reports", title: "Reports", icon: TbBrandGoogleAnalytics },
   ];
-  
+
   return (
     <div className="flex flex-col h-screen gap-8 px-1 py-6 bg-gray-100 border-r border-gray-300">
       <AppLogo />
@@ -52,7 +52,7 @@ const LeftPanel = () => {
         className="mt-auto flex justify-center items-center gap-3 px-4 py-2 rounded-lg bg-red-500 text-white 
         font-medium transition duration-300 hover:bg-red-600 shadow-md"
       >
-        <BiLogOut className="text-lg" />
+        <BiLogOut className="text-lg" onClick={handleLogout} />
         Logout
       </button>
     </div>

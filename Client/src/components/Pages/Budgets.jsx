@@ -45,7 +45,6 @@ const Budgets = () => {
           <p className="mt-2 text-gray-600">Create New Budget</p>
         </div>
 
-        {/* Display Fetched Budgets */}
         {budgets.length > 0 ? (
           budgets.map((budget, index) => (
             <Link to={`/${budget._id}/${budget.category}`}>

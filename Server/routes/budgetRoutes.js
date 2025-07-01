@@ -13,7 +13,7 @@ import { authenticateUser } from "../controllers/userController.js";
 const router = express.Router(); 
 
 router.post("/:userId/add",authenticateUser, addBudget);
-router.get("/:userId/all",authenticateUser, getBudgets); // 
+router.get("/:userId/all",authenticateUser, getBudgets); 
 router.get("/:budgetId",authenticateUser, getSingleBudget);
 router.get("/:userId/budgetNames",authenticateUser, getBudgetsName);
 router.get("/:budgetId/expenses",authenticateUser, getBudgetWithExpenses);
